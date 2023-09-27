@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Eduardo Eugênio de Souza</title>
+  
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <h1 style="font-family: 'Luckiest Guy', cursive; font-size:72px">
+    Bloons TD 6 - dissecando os macacos</h1>
+
+  <h2>
+    <b>
+    Uma análise sobre o que se trata o jogo e o que torna ele interessante.
+    </b>
+  </h2>
+  <img src="https://primagames.com/wp-content/uploads/2023/07/How-to-Download-and-Play-BTD6-on-Netflix.jpg?fit=1200%2C675" class="center">
+  <p>
+    Bloons TD 6 é o nome de um jogo onde o jogador tem o papel de comandar macacos para estes poderem estourar os balões. Por mais que parta de uma premissa simples (e francamente sem sentido) é um jogo que tem inúmeros desafios que podem ser enfrentados, além de <u>diversas maneiras</u> de se aproveitar o jogo. O jogo oferece variados tipos de macacos que podem ser utilizados para se defender dos balões. Você pode escolher, desde um macaco que atira dardos, até um que usa um morteiro para o mesmo efeito. Os balões também ficam mais resilientes conforme o jogo avança, começando pelo balão vermelho que é estourado com um dardo, e que vai ganhando camadas que requerem mais dardos para estourar, ou que passa a se dividir ao estourar... 
+  </p>
+  <div>
+    <img  src="https://www.models-resource.com/resources/big_icons/57/56367.png?updated=1663446232" style="margin-left: 15%;">
+    <img src="https://cdn140.picsart.com/268344213012211.png">
+  </div>
+  <p>
+    Neste jogo você pode encontrar aspectos que atraem diversos tipos de jogadores, entre estes, estão principalmente:
+  </p>
+  <!-- <ul style="margin-bottom: 150px;">
+    <li>Tower Defense</li>
+    <li>Gameplay Casual</li>
+    <li>Estratégia</li>
+    <li>Jogo Cooperativo</li>
+    <li>Micromanagement</li>
+  </ul> -->
+
+  <ul style="margin-bottom: 150px;">
+    {% for genero in generos %}
+      <li>{{genero.titulo}}</li>
+    {% endfor %}
+      <li><a href="alterar/formGenero/add/">Se quiser adicionar algo que te interessa neste jogo que não está escrito aqui, fique a vontade.</a></li>
+  </ul>
+  
+  <p>
+    Após escolher um mapa e uma dificuldade que deseja desafiar, o ciclo principal de gameplay funciona mais ou menos da seguinte maneira: 
+  </p>
+
+  <!-- 
+  <ol style="margin-bottom: 250px;">
+    <li>Solte no mapa os macacos que usará para se defender</li>
+    <img src="https://cdn1.epicgames.com/spt-assets/764b2d57552c436590f50318bd7587f9/bloons-td-6-video-10lv8.png" class="center">
+    <li>Fique sem dinheiro</li>
+    <img src="https://steamuserimages-a.akamaihd.net/ugc/1658980985031910479/DAD2334E25EBDD569DBB103A174373E6A1F0D69F/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false">
+    <li>Entram os próximos rounds de balões para te atacar</li>
+    <img src=https://pm1.aminoapps.com/6864/033717c81fb8722f4e219e8c6461f9ae3e5a4d10r1-1334-750v2_hq.jpg  class="center">
+    <li>Com o dinheiro obtido ao derrotar os balões, torne sua defesa mais forte</li>
+    <img src="https://www.touchtapplay.com/wp-content/uploads/2022/03/monkey-money-bloons-td-6.jpg?fit=1200%2C628", class=tamanho>
+    <li>entram balões mais fortes</li>
+    <img src="https://i.redd.it/311tojof2d881.png">
+    <li style="color:red">você perde para algo que acabou não se preparando contra.</li>
+    <img src="https://i.redd.it/wydjmbb37j831.png" class="center">
+    <li>tenta de novo; e dessa vez <i style="font-size: 36px;">vence</i> dos balões.</li>
+    <img src="https://www.sirknightj.com/blog/wp-content/uploads/2023/01/btd6-daily-challenge-victory-screen.png" class="center">
+  </ol>
+-->
+
+  <ol style="margin-bottom: 250px;">
+    {% for frase in historia %}
+      <li>{{frase.titulo}}</li>
+      <img src="{{frase.imagem}}" class="{{frase.estilo}}">
+    {% endfor %}
+    <li style="color:red">{{continuacao.0.titulo}}</li>
+    <img src="{{continuacao.0.imagem}}" class="{{continuacao.0.estilo}}">
+    <li>tenta de novo; e dessa vez <i style="font-size: 36px;">vence</i> dos balões.</li>
+    <img src="{{continuacao.1.imagem}}" class="{{continuacao.1.estilo}}">
+
+    <h3 style="margin-top:50px;"> Outros usuários contam como foi com eles:</h3>
+
+    {% for frase in dosUsuarios %}
+      <li>{{ frase.autor }} disse:
+      <div>
+        "{{ frase.titulo }}"
+      </div>
+      </li>
+    {% endfor %}
+    <a href="alterar/formHistoria/add/">Conte a sua história de BTD6!</a>
+  </ol>
+
+  
+  <h3>
+    Ao final de um jogo muito comprido sua tela passa a parecer algo deste tipo:
+  </h3>
+  <img src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs2/276418896/original/47f89d270bfca075d1bebd55331ba622a6f5a0b7/bloons-btd6-co-op-any-map.png" class="center">
+
+  
+  <p>
+    Para tentar explicar como que uma premissa tão simples chega a tal ponto, é necessário entender o sistema de <i>upgrades</i> do jogo. Todo macaco que você põe no campo para defender-se dos balões tem disponível para si 3 caminhos diferentes de melhorias (Topo, Meio e Baixo). Dentre estes você escolhe um caminho principal que aquele macaco seguirá, de onde você tem 5 níveis de melhoria disponível; e além disso escolhe um dos outros 2 caminhos para ser o secundário do seu macaco, e deste poderá ir até o segundo nível de melhoria. Para visualizar melhor o que está acontecendo, vejamos um exemplo. Você escolheu usar um atirador de dardos para se defender. inicialmente se tem os seguintes upgrades disponíveis:
+  </p>
+  
+  <table width="1400" height="240">
+    <!--
+    <tr>
+      <th> Topo </th>
+      <td>- Sharp Shots </td>
+      <td>- Razor Sharp Shots </td>
+      <td>- Spike-o-pult </td>
+      <td>- Juggernaut </td>
+      <td>- Ultra-Juggernaut </td>
+    </tr>
+
+    <tr>
+      <th> Meio </th>
+      <td>- Quick Shots </td>
+      <td>- Very Quick Shots </td>
+      <td>- Triple Shot </td>
+      <td>- Super Monkey Fan Club </td>
+      <td>- Plasma Monkey Fan Club </td>
+    </tr>
+
+    <tr>
+      <th> de baixo </th>
+      <td>- Long Range Darts </td>
+      <td>- Enhanced Eyesight </td>
+      <td>- Crossbow </td>
+      <td>- Sharp Shooter </td>
+      <td>- Crossbow Master </td>
+    </tr>
+    -->
+
+    <tr>
+      <th> Topo </th>
+      {% for upgrade in upgradesTopo %}
+      <td>- {{upgrade.titulo}}</td>
+      {%endfor%}
+    </tr>
+
+    <tr>
+      <th> Meio </th>
+      {% for upgrade in upgradesMeio %}
+      <td>- {{upgrade.titulo}}</td>
+      {%endfor%}
+    </tr>
+
+    <tr>
+      <th> Baixo </th>
+      {% for upgrade in upgradesBaixo %}
+      <td>- {{upgrade.titulo}}</td>
+      {%endfor%}
+    </tr>
+    
+  </table>
+
+  <div style="margin-bottom: 100px;">
+    <p>
+    Você escolhe dentre todos estes seguir um dos caminhos como o principal, além de um dos outros dois como secundário. Com tantos upgrades disponíveis para cada um dos macacos posto em campo, começa a parecer plausível o cenário de antes. Em meio a isto tudo ainda existem diversos detalhes que cada upgrade tem, como a capacidade de lidar com certos balões que tem imunidades, ou algum que danifique mais camadas, ou atravesse mais balões por vez... Enfim, existem diversas camadas de nuance que estão intrinsicamente relacionadas com a escolha por cada upgrade. Caso você esteja interessado você pode encontrar conteúdo interessante que mostra o jogo melhor <a href="https://www.youtube.com/@BTDIsab" target="_blank"> aqui </a> e caso esteja interessado em aprender mais sobre cada detalhe do jogo  <a href="https://bloons.fandom.com/wiki/Bloons_TD_6" target="_blank"> na wiki</a> que tem diversos autores da comunidade muito dedicados. 
+    </p>
+  </div>
+
+  <a href="alterar/">
+    Se deseja alterar algum conteúdo no site clique aqui.
+  </a>
+</body>
+
+</html>

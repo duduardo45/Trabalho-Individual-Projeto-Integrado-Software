@@ -1,0 +1,36 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: #101030; 
+  color: #EEEEBB;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size:24px ;
+  padding-bottom: 100px;
+}
+
+li {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.center {
+    width: 960px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tamanho {
+  width: 500px;
+}
+
+table, th, td {
+  border:2px solid #eeeebb;
+}
+
+a {
+  color: #ffb638;
+}

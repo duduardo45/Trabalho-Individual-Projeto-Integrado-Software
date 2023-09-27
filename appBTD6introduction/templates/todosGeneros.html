@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Eduardo Eugênio de Souza</title>
+
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+
+  <h3>Estes são os temas que estão listados no site:</h3>
+  
+  <ul style="margin-top: 150px;">
+    {% for genero in generos %}
+      <li>{{genero.titulo}}
+        <a href="edit/{{ genero.id }}"> Alterar </a>
+        <a href="remove/{{ genero.id }}"> Remover </a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <div style="margin-top: 100px;">
+  <a href="https://atividade-04-formularios-no-django-duduardo64.eng4021-20232.repl.co/">Voltar a página inicial</a>
+  </div>
+</body>

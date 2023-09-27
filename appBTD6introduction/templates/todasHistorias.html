@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Eduardo Eugênio de Souza</title>
+
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <h3>Favor não alterar estas histórias:</h3>
+
+  <ol style="margin-top: 100px;">
+    {% for frase in historiasFixas %}
+      <li>{{frase.titulo}}
+        | <a href="edit/{{ historiasFixas.id }}">  Alterar </a>
+        ou
+        <a href="remove/{{ historiasFixas.id }}"> Remover </a>
+      </li>
+    {% endfor %}
+
+  <h3 style="margin-top: 150px;">Histórias enviadas por usuários:</h3>
+    {% for frase in historiasUsuarios %}
+      <li>História de {{frase.autor}}:
+        <p>"{{frase.titulo}}"</p>
+        <div>
+          | <a href="edit/{{ frase.id }}"> Alterar </a>
+          ou
+          <a href="remove/{{ frase.id }}"> Remover </a>
+          esta história
+        </div>
+      </li>
+    {% endfor %}
+  </ol>
+
+
+  <div style="margin-top: 100px;">
+  <a href="https://atividade-04-formularios-no-django-duduardo64.eng4021-20232.repl.co/">Voltar a página inicial</a>
+  </div>
+</body>
