@@ -27,6 +27,6 @@ urlpatterns = [
     path('alterar/formHistoria/',views.formHistoria),
     path('alterar/formHistoria/add/',views.formHistoriaAdd),
     path('alterar/formHistoria/edit/<id>',views.formHistoriaEdit),
-  path('alterar/formHistoria/remove/<id>',views.formHistoriaRemove),
+    path('alterar/formHistoria/remove/<id>',views.formHistoriaRemove),
     path('admin/', admin.site.urls),
 ]
