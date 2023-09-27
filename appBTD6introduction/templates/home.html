@@ -1,22 +1,10 @@
-<!DOCTYPE html>
+{% extends "header.html" %}
 
-
-<html>
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Eduardo Eugênio de Souza</title>
-  
-  {% load static %}
-  <link rel="stylesheet" href="{% static 'style.css' %}">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+{% block extrafonts %}
   <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
-</head>
+{% endblock %}
 
+{% block content %}
 <body>
   <h1 style="font-family: 'Luckiest Guy', cursive; font-size:72px">
     Bloons TD 6 - dissecando os macacos</h1>
@@ -171,5 +159,5 @@
     Se deseja alterar algum conteúdo no site clique aqui.
   </a>
 </body>
-
+{% endblock %}
 </html>
