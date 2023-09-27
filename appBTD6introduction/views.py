@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import Generos, Historia, Upgrade
+from django.contrib.auth.models import User
 
+from .models import Generos, Historia, Upgrade
 from .forms import GeneroForm, HistoriaForm
 
 # Create your views here.
@@ -47,6 +48,7 @@ def formGeneroAdd(request):
         return redirect("/")
  
     context['form']= form
+    context['frase']="Adicionar novo Gênero:"
     return render(request, "form.html", context)
 
 
@@ -58,6 +60,7 @@ def formGeneroEdit(request, id):
         form.save()
         return redirect("/")
     context['form']= form
+    context['frase']="Editar o Gênero:"
     return render(request, "form.html", context)
 
 
@@ -94,6 +97,7 @@ def formHistoriaAdd(request):
         return redirect("/")
  
     context['form']= form
+    context['frase']="Conte sua história de BTD6:"
     return render(request, "form.html", context)
 
 
@@ -105,6 +109,7 @@ def formHistoriaEdit(request, id):
         form.save()
         return redirect("/")
     context['form']= form
+    context['frase']="Editar esta história:"
     return render(request, "form.html", context)
 
 
@@ -123,3 +128,14 @@ def formHistoriaRemove(request, id):
 
 def alteracoes(request):
   return render(request,"alteracoes.html")
+
+def create_user(request):
+    if request.method=="POST":
+      user = User.objects.create_user(
+        request.POST["username"],
+        request.POST["email"],
+        request.POST["password"]
+      )
+      user.save()
+      return redirect("/")
+    return render(request,"registrar.html")

@@ -1,0 +1,24 @@
+{% extends "header.html" %}
+
+{% block content %}
+<body>
+
+  <h2>{{ frase }}</h2>
+  
+  <form method="post">
+    <div>
+      <label>Nome de usuário:</label>
+      <input type="text">
+    </div>
+    <div>
+      <label>E-mail:</label>
+      <input type="email">
+    </div>
+    <div>
+      <label>Senha:</label>
+      <input type="password">
+    </div>
+
+    <input type="submit" value="Registrar">
+</body>
+{% endblock %}
