@@ -6,7 +6,15 @@
 
 {% block content %}
 <body>
-  <h1 style="font-family: 'Luckiest Guy', cursive; font-size:72px">
+  
+  {% if user.is_authenticated %}
+    <div class="sidebar">
+      <h4>Bem vindo, {{ user.username }}</h4>
+      <a href="{% url 'logout' %}">Logout</a>
+    </div>
+  {% endif %}
+  <div class="main">
+  <h1 style="font-family: 'Luckiest Guy', cursive; font-size:72px; padding-top:20px;">
     Bloons TD 6 - dissecando os macacos</h1>
 
   <h2>
@@ -158,6 +166,7 @@
   <a href="alterar/">
     Se deseja alterar algum conteúdo no site clique aqui.
   </a>
+  </div>
 </body>
 {% endblock %}
 </html>

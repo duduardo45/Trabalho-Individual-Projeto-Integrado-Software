@@ -1,12 +1,17 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 from .models import Generos, Historia, Upgrade
 from .forms import GeneroForm, HistoriaForm
 
 # Create your views here.
 
+@login_required
 def home(request):
+
+  user=request.user
+  
   generos = Generos.objects.all()
   historia = Historia.objects.all()[:5]
   continuacao = Historia.objects.all()[5:7]
@@ -17,6 +22,7 @@ def home(request):
   dosUsuarios = Historia.objects.all()[7:]
   
   context = {
+    "user" : user,
     "generos" : generos,
     "historia" : historia,
     "continuacao" : continuacao,
@@ -29,7 +35,7 @@ def home(request):
   return render(request,"home.html", context=context)
 
 
-
+@login_required
 def formGenero(request):
   
   generos = Generos.objects.all()
@@ -39,7 +45,7 @@ def formGenero(request):
   }
   return render(request,"todosGeneros.html", context)
 
-
+@login_required
 def formGeneroAdd(request):
     context ={}
     form = GeneroForm(request.POST or None, request.FILES or None)
@@ -51,7 +57,7 @@ def formGeneroAdd(request):
     context['frase']="Adicionar novo Gênero:"
     return render(request, "form.html", context)
 
-
+@login_required
 def formGeneroEdit(request, id):
     context ={}
     genero = Generos.objects.get(id=id)
@@ -63,7 +69,7 @@ def formGeneroEdit(request, id):
     context['frase']="Editar o Gênero:"
     return render(request, "form.html", context)
 
-
+@login_required
 def formGeneroRemove(request, id):
   genero = Generos.objects.get(id=id)
   context={
@@ -76,7 +82,7 @@ def formGeneroRemove(request, id):
     return redirect("/")
   return render(request, "confirmacao.html", context=context)
 
-
+@login_required
 def formHistoria(request):
 
   historiasFixas = Historia.objects.all()[:7]
@@ -88,7 +94,7 @@ def formHistoria(request):
   }
   return render(request,"todasHistorias.html", context=context)
 
-
+@login_required
 def formHistoriaAdd(request):
     context ={}
     form = HistoriaForm(request.POST or None, request.FILES or None)
@@ -100,7 +106,7 @@ def formHistoriaAdd(request):
     context['frase']="Conte sua história de BTD6:"
     return render(request, "form.html", context)
 
-
+@login_required
 def formHistoriaEdit(request, id):
     context ={}
     historia = Historia.objects.get(id=id)
@@ -112,7 +118,7 @@ def formHistoriaEdit(request, id):
     context['frase']="Editar esta história:"
     return render(request, "form.html", context)
 
-
+@login_required
 def formHistoriaRemove(request, id):
   historia = Historia.objects.get(id=id)
   context={
@@ -125,17 +131,22 @@ def formHistoriaRemove(request, id):
     return redirect("/")
   return render(request, "confirmacao.html", context=context)
 
-
+@login_required
 def alteracoes(request):
   return render(request,"alteracoes.html")
 
 def create_user(request):
+    context={}
     if request.method=="POST":
       user = User.objects.create_user(
         request.POST["username"],
         request.POST["email"],
-        request.POST["password"]
+        request.POST["senha"]
       )
       user.save()
       return redirect("/")
-    return render(request,"registrar.html")
+    context['frase']="Registrar novo Usuário:"
+    context['botao']="Cadastrar-se"
+    return render(request,"registrar.html",context=context)
+
+

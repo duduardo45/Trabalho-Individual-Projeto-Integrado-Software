@@ -34,3 +34,21 @@ table, th, td {
 a {
   color: #ffb638;
 }
+
+a:hover {
+  color: #ff6038;
+}
+
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #3b0e67;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.main {
+  margin-left:200px;
+}
