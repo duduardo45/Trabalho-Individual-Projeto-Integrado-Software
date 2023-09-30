@@ -9,9 +9,9 @@
   <ol style="margin-top: 100px;">
     {% for frase in historiasFixas %}
       <li>{{frase.titulo}}
-        | <a href="edit/{{ historiasFixas.id }}">  Alterar </a>
+        | <a href="edit/{{ historiasFixas.id }}">  Alterar</a>
         ou
-        <a href="remove/{{ historiasFixas.id }}"> Remover </a>
+        <a href="remove/{{ historiasFixas.id }}"> Remover</a>
       </li>
     {% endfor %}
 
@@ -20,9 +20,9 @@
       <li>História de {{frase.autor}}:
         <p>"{{frase.titulo}}"</p>
         <div>
-          | <a href="edit/{{ frase.id }}"> Alterar </a>
+          | <a href="edit/{{ frase.id }}"> Alterar</a>
           ou
-          <a href="remove/{{ frase.id }}"> Remover </a>
+          <a href="remove/{{ frase.id }}"> Remover</a>
           esta história
         </div>
       </li>

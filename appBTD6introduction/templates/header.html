@@ -14,5 +14,13 @@
   {% block extrafonts %}{% endblock %}
 </head>
 
+  {% if user.is_authenticated %}
+    <div class="sidebar">
+      <h4>Bem vindo, {{ user.username }}</h4>
+      <a href="{% url 'logout' %}">Logout</a>
+    </div>
+  {% endif %}
+<div class="main">
 {% block content %}
 {% endblock %}
+</div>

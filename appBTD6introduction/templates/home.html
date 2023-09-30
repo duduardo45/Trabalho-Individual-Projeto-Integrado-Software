@@ -6,14 +6,7 @@
 
 {% block content %}
 <body>
-  
-  {% if user.is_authenticated %}
-    <div class="sidebar">
-      <h4>Bem vindo, {{ user.username }}</h4>
-      <a href="{% url 'logout' %}">Logout</a>
-    </div>
-  {% endif %}
-  <div class="main">
+
   <h1 style="font-family: 'Luckiest Guy', cursive; font-size:72px; padding-top:20px;">
     Bloons TD 6 - dissecando os macacos</h1>
 
@@ -159,14 +152,13 @@
 
   <div style="margin-bottom: 100px;">
     <p>
-    Você escolhe dentre todos estes seguir um dos caminhos como o principal, além de um dos outros dois como secundário. Com tantos upgrades disponíveis para cada um dos macacos posto em campo, começa a parecer plausível o cenário de antes. Em meio a isto tudo ainda existem diversos detalhes que cada upgrade tem, como a capacidade de lidar com certos balões que tem imunidades, ou algum que danifique mais camadas, ou atravesse mais balões por vez... Enfim, existem diversas camadas de nuance que estão intrinsicamente relacionadas com a escolha por cada upgrade. Caso você esteja interessado você pode encontrar conteúdo interessante que mostra o jogo melhor <a href="https://www.youtube.com/@BTDIsab" target="_blank"> aqui </a> e caso esteja interessado em aprender mais sobre cada detalhe do jogo  <a href="https://bloons.fandom.com/wiki/Bloons_TD_6" target="_blank"> na wiki</a> que tem diversos autores da comunidade muito dedicados. 
+    Você escolhe dentre todos estes seguir um dos caminhos como o principal, além de um dos outros dois como secundário. Com tantos upgrades disponíveis para cada um dos macacos posto em campo, começa a parecer plausível o cenário de antes. Em meio a isto tudo ainda existem diversos detalhes que cada upgrade tem, como a capacidade de lidar com certos balões que tem imunidades, ou algum que danifique mais camadas, ou atravesse mais balões por vez... Enfim, existem diversas camadas de nuance que estão intrinsicamente relacionadas com a escolha por cada upgrade. Caso você esteja interessado você pode encontrar conteúdo interessante que mostra o jogo melhor <a href="https://www.youtube.com/@BTDIsab" target="_blank"> aqui</a> e caso esteja interessado em aprender mais sobre cada detalhe do jogo  <a href="https://bloons.fandom.com/wiki/Bloons_TD_6" target="_blank"> na wiki</a> que tem diversos autores da comunidade muito dedicados. 
     </p>
   </div>
 
   <a href="alterar/">
     Se deseja alterar algum conteúdo no site clique aqui.
   </a>
-  </div>
 </body>
 {% endblock %}
 </html>

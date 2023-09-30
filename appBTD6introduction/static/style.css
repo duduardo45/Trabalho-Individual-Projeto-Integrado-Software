@@ -40,15 +40,15 @@ a:hover {
 }
 
 .sidebar {
-  margin: 0;
-  padding: 0;
-  width: 200px;
-  background-color: #3b0e67;
+  margin: 0px;
+  padding: 0px;
+  width: 150px;
+  background-color: #101030;
   position: fixed;
   height: 100%;
   overflow: auto;
 }
 
 .main {
-  margin-left:200px;
+  margin-left:150px;
 }
