@@ -6,14 +6,14 @@
 <a href="{% url 'cadastrar' %}">cadastre-se aqui.</a>
 </h3>
 
-{% if form.errors %}
-  <h3>não funcionou</h3>
-{% endif %}
-
 <form method="post">
   {% csrf_token %}
   {{ form.as_ul }}
   <input type="submit" value="Entrar">
 </form>
+
+<div style="margin-top:50px;">
+  <a href="{% url 'password_reset' %}">Esqueceu sua senha?</a>
+</div>
 
 {% endblock %}

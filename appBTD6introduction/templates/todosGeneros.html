@@ -6,7 +6,7 @@
 
   <h3>Estes são os temas que estão listados no site:</h3>
   
-  <ul style="margin-top: 150px;">
+  <ul style="margin-top: 150px;margin-bottom:50px;">
     {% for genero in generos %}
       <li>{{genero.titulo}}
         <a href="edit/{{ genero.id }}"> Alterar</a> |
@@ -14,9 +14,6 @@
       </li>
     {% endfor %}
   </ul>
-
-  <div style="margin-top: 100px;">
-  <a href="{% url 'home' %}">Voltar a página inicial</a>
-  </div>
+  <a href="{% url 'home' %}alterar">Voltar a página anterior</a>
 </body>
 {% endblock %}

@@ -15,10 +15,16 @@
 </head>
 
   {% if user.is_authenticated %}
-    <div class="sidebar">
+    <span class="sidebar">
       <h4>Bem vindo, {{ user.username }}</h4>
       <a href="{% url 'logout' %}">Logout</a>
-    </div>
+      <div style="margin-top:20px;">
+        <a href="{% url 'home' %}">Home</a>
+      </div>
+      <div style="margin-top:20px;">
+        <a href="users/editar/{{ user.id }}">Alterar seus dados</a>
+      </div>
+    </span>
   {% endif %}
 <div class="main">
 {% block content %}

@@ -1,4 +1,6 @@
 from django.forms import ModelForm,Textarea
+#from django.contrib.auth.forms import UsernameField
+from django.contrib.auth.models import User
 
 from .models import Generos,Historia
 
@@ -20,4 +22,21 @@ class HistoriaForm(ModelForm):
     }
     widgets = {
       "titulo":Textarea(attrs={"cols": 80, "rows": 20})
+    }
+
+
+class UserForm(ModelForm):
+  class Meta:
+    model = User
+    fields = [
+      "username",
+      "first_name",
+      "last_name",
+      "email"
+    ]
+    labels = {
+      "username":"Nome de Usuário",
+      "first_name":"Primeiro Nome",
+      "last_name":"Sobrenome",
+      "email":"Seu email",
     }

@@ -14,12 +14,21 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 from appBTD6introduction import views
 
 urlpatterns = [
-    path('users/', include('django.contrib.auth.urls')),
+    path('login/', views.Login.as_view(), name='login'),
+    path('logout/', views.Logout.as_view(), name='logout'),
+
+    path('password_reset/', views.PasswordReset.as_view(), name='password_reset'),
+    path('password_reset/done/', views.PasswordResetDone.as_view(), name='password_reset_done'),
+    path('reset/<uidb64>/<token>/', views.PasswordResetConfirm.as_view(), name='password_reset_confirm'),
+    path('reset/done/', views.PasswordResetComplete.as_view(), name='password_reset_complete'),
+
+  
     path('users/registrar/',views.create_user,name='cadastrar'),
+    path('users/editar/<id>',views.formUserEdit,name='update_user'),
     path('',views.home,name='home'),
     path('alterar/',views.alteracoes),
     path('alterar/formGenero/',views.formGenero),
